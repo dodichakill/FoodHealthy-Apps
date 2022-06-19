@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:foodhealthy/data/ListFood.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   final DataFoods? food;
+
+  const DetailScreen({Key? key, @required this.food}) : super(key: key);
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
   var styleTextSmall = TextStyle(fontSize: 15, height: 1.4, color: Colors.green[700]);
+
   var styleTextLarge = TextStyle(fontSize: 16,fontWeight: FontWeight.bold, color: Colors.green[800]);
-  DetailScreen({@required this.food});
 
   @override
   Widget build(BuildContext context) {
@@ -14,67 +22,66 @@ class DetailScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           color: Colors.white,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
         ),
-        actions: [
+        actions: const [
           FavoriteBtn()
         ],
-        title: Text('${food?.nama}'),
+        title: Text('${widget.food?.nama}'),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset('images/${food?.foto}'),
+            Image.asset('images/${widget.food?.foto}'),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  Text('${food?.deskripsi}', style: styleTextSmall,),
-                  SizedBox(height: 15),
+                  Text('${widget.food?.deskripsi}', style: styleTextSmall,),
+                  const SizedBox(height: 15),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: Colors.green[50]
                     ),
                     child: Column(
                       children: [
                         Text('Manfaat :', style: styleTextLarge),
-                        SizedBox(height: 8,),
-                        Text('${food?.manfaat}', style: styleTextSmall),
+                        const SizedBox(height: 8,),
+                        Text('${widget.food?.manfaat}', style: styleTextSmall),
                       ],
                     ),
                   ),
                   
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Container(
                     color: Colors.green[500],
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
-                        Text("Mari kita buat sendiri...", style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),),
-                        SizedBox(height: 10),
+                        const Text("Mari kita buat sendiri...", style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),),
+                        const SizedBox(height: 10),
                         Container(
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           color: Colors.white,
                           child: Column(
                             children: [
                               Text("Bahan", style: styleTextLarge),
-                              SizedBox(height: 10),
-                              Text('${food?.bahan}', style: styleTextSmall),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 10),
+                              Text('${widget.food?.bahan}', style: styleTextSmall),
+                              const SizedBox(height: 20),
                               Text("Langkah - Langkah", style: styleTextLarge),
-                              SizedBox(height: 10),
-                              Text('${food?.langkah}',style: styleTextSmall),
-
+                              const SizedBox(height: 10),
+                              Text('${widget.food?.langkah}',style: styleTextSmall),
                             ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                 ],
               ),
             ),
@@ -86,6 +93,8 @@ class DetailScreen extends StatelessWidget {
 }
 
 class FavoriteBtn extends StatefulWidget {
+  const FavoriteBtn({Key? key}) : super(key: key);
+
   @override
   _FavoriteBtnState createState() => _FavoriteBtnState();
 }

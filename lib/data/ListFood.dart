@@ -1,4 +1,3 @@
-// ignore: file_names
 class DataFoods {
   String? nama;
   String? foto;
