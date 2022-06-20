@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
             children: [
               // section hero start
               Container(
-                margin: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                margin: const EdgeInsets.fromLTRB(10, 20, 10, 30),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.green,
@@ -66,7 +66,7 @@ class MainScreen extends StatelessWidget {
               Text("Daftar Makanan dan minuman pilihan :",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 19,
                       color: Colors.green[700])),
               const SizedBox(height: 15),
               Column(
